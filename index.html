@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>香港珠海學院 - 應用人工智能碩士專業</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a4b8c;
+            --secondary-color: #c53b3b;
+            --accent-color: #4c8bf5;
+            --light-color: #f5f7fa;
+            --dark-color: #2c3e50;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans TC', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #2c3e50);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .language-switcher {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .language-switcher:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* 主横幅样式 */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+        
+        .cta-button:hover {
+            background-color: #a52e2e;
+            transform: translateY(-3px);
+        }
+        
+        /* 内容区块样式 */
+        section {
+            padding: 4rem 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--dark-color);
+        }
+        
+        /* 课程特色 */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        /* 课程结构 */
+        .curriculum {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .course-card {
+            background: var(--light-color);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+        
+        .course-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* 时间线样式 */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary-color);
+        }
+        
+        /* 联系表单样式 */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+        
+        .submit-btn:hover {
+            background-color: #153a6b;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+        }
+        
+        /* 语言切换相关样式 */
+        .lang-zh, .lang-en {
+            display: none;
+        }
+        
+        .lang-zh:lang(zh), .lang-en:lang(en) {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-brain fa-2x"></i>
+                    <div class="logo-text">香港珠海學院</div>
+                </div>
+                <div class="nav-links">
+                    <a href="#about" class="lang-zh">課程簡介</a>
+                    <a href="#about" class="lang-en">About</a>
+                    <a href="#features" class="lang-zh">課程特色</a>
+                    <a href="#features" class="lang-en">Features</a>
+                    <a href="#curriculum" class="lang-zh">課程結構</a>
+                    <a href="#curriculum" class="lang-en">Curriculum</a>
+                    <a href="#admission" class="lang-zh">入學申請</a>
+                    <a href="#admission" class="lang-en">Admission</a>
+                    <a href="#contact" class="lang-zh">聯繫我們</a>
+                    <a href="#contact" class="lang-en">Contact</a>
+                </div>
+                <button class="language-switcher" id="languageSwitcher">
+                    <span class="lang-zh">English</span>
+                    <span class="lang-en">繁體中文</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主横幅 -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="lang-zh">應用人工智能碩士專業</h1>
+                <h1 class="lang-en">Master of Applied Artificial Intelligence</h1>
+                <p class="lang-zh">掌握人工智能技術，引領未來創新發展</p>
+                <p class="lang-en">Master AI technologies and lead future innovation</p>
+                <a href="#admission" class="cta-button lang-zh">立即申請</a>
+                <a href="#admission" class="cta-button lang-en">Apply Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 课程介绍 -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-zh">課程簡介</h2>
+                <h2 class="lang-en">Program Overview</h2>
+                <p class="lang-zh">香港珠海學院應用人工智能碩士專業致力於培養具有創新能力和實踐經驗的人工智能專業人才</p>
+                <p class="lang-en">The Master of Applied Artificial Intelligence program at Hong Kong Chu Hai College is dedicated to cultivating AI professionals with innovative capabilities and practical experience.</p>
+            </div>
+            <div class="lang-zh">
+                <p>本課程結合理論與實踐，涵蓋機器學習、深度學習、自然語言處理、計算機視覺等前沿領域。學生將通過實際項目和案例研究，獲得解決現實世界問題的能力。</p>
+                <p>課程由資深學者和業界專家授課，提供最先進的實驗設備和豐富的學習資源，為學生在人工智能領域的職業發展奠定堅實基礎。</p>
+            </div>
+            <div class="lang-en">
+                <p>This program combines theory and practice, covering cutting-edge fields such as machine learning, deep learning, natural language processing, and computer vision. Students will gain the ability to solve real-world problems through practical projects and case studies.</p>
+                <p>Taught by experienced scholars and industry experts, the course provides state-of-the-art laboratory facilities and abundant learning resources, laying a solid foundation for students' career development in the field of artificial intelligence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 课程特色 -->
+    <section id="features" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-zh">課程特色</h2>
+                <h2 class="lang-en">Program Features</h2>
+                <p class="lang-zh">我們的課程設計旨在為學生提供全面的人工智能教育體驗</p>
+                <p class="lang-en">Our curriculum is designed to provide students with a comprehensive AI education experience</p>
+            </div>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="lang-zh">實踐導向</h3>
+                    <h3 class="lang-en">Practice-Oriented</h3>
+                    <p class="lang-zh">通過實際項目和實驗室工作，培養學生的實踐能力和問題解決技能</p>
+                    <p class="lang-en">Develop students' practical abilities and problem-solving skills through real projects and laboratory work</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3 class="lang-zh">業界合作</h3>
+                    <h3 class="lang-en">Industry Collaboration</h3>
+                    <p class="lang-zh">與領先科技公司合作，提供實習機會和業界項目實踐</p>
+                    <p class="lang-en">Collaborate with leading technology companies to provide internship opportunities and industry project practice</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="lang-zh">專家師資</h3>
+                    <h3 class="lang-en">Expert Faculty</h3>
+                    <p class="lang-zh">由國際知名學者和業界專家組成的教學團隊</p>
+                    <p class="lang-en">Teaching team composed of internationally renowned scholars and industry experts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 课程结构 -->
+    <section id="curriculum">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-zh">課程結構</h2>
+                <h2 class="lang-en">Curriculum Structure</h2>
+                <p class="lang-zh">兩年制碩士課程，包含核心課程、選修課程和畢業項目</p>
+                <p class="lang-en">Two-year master program including core courses, elective courses and graduation project</p>
+            </div>
+            <div class="curriculum">
+                <div class="course-card">
+                    <h3 class="lang-zh">核心課程</h3>
+                    <h3 class="lang-en">Core Courses</h3>
+                    <ul>
+                        <li class="lang-zh">機器學習基礎</li>
+                        <li class="lang-en">Fundamentals of Machine Learning</li>
+                        <li class="lang-zh">深度學習與神經網絡</li>
+                        <li class="lang-en">Deep Learning and Neural Networks</li>
+                        <li class="lang-zh">自然語言處理</li>
+                        <li class="lang-en">Natural Language Processing</li>
+                        <li class="lang-zh">計算機視覺</li>
+                        <li class="lang-en">Computer Vision</li>
+                    </ul>
+                </div>
+                <div class="course-card">
+                    <h3 class="lang-zh">選修課程</h3>
+                    <h3 class="lang-en">Elective Courses</h3>
+                    <ul>
+                        <li class="lang-zh">強化學習</li>
+                        <li class="lang-en">Reinforcement Learning</li>
+                        <li class="lang-zh">人工智能倫理</li>
+                        <li class="lang-en">AI Ethics</li>
+                        <li class="lang-zh">大數據分析</li>
+                        <li class="lang-en">Big Data Analytics</li>
+                        <li class="lang-zh">機器人學</li>
+                        <li class="lang-en">Robotics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 入学要求 -->
+    <section id="admission" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-zh">入學申請</h2>
+                <h2 class="lang-en">Admission Requirements</h2>
+                <p class="lang-zh">歡迎符合以下條件的申請者報讀我們的應用人工智能碩士課程</p>
+                <p class="lang-en">Applicants who meet the following conditions are welcome to apply for our Master of Applied AI program</p>
+            </div>
+            <div class="lang-zh">
+                <h3>基本要求</h3>
+                <ul>
+                    <li>認可大學的學士學位，計算機科學、工程、數學或相關領域優先</li>
+                    <li>本科學位平均成績不低於B級或同等水平</li>
+                    <li>精通至少一門編程語言（如Python、Java或C++）</li>
+                    <li>英語水平證明（如適用）</li>
+                </ul>
+                
+                <h3>申請流程</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>提交申請</h3>
+                            <p>通過在線申請系統提交申請表和所需材料</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>入學考試</h3>
+                            <p>符合條件的申請者將被邀請參加入學考試</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>面試</h3>
+                            <p>通過入學考試的申請者將參加面試</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>錄取通知</h3>
+                            <p>成功通過面試的申請者將在兩週內收到錄取通知</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lang-en">
+                <h3>Basic Requirements</h3>
+                <ul>
+                    <li>A bachelor's degree from a recognized university, preferably in computer science, engineering, mathematics or related fields</li>
+                    <li>Undergraduate GPA not lower than B grade or equivalent</li>
+                    <li>Proficiency in at least one programming language (e.g. Python, Java or C++)</li>
+                    <li>Proof of English proficiency (if applicable)</li>
+                </ul>
+                
+                <h3>Application Process</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Submit Application</h3>
+                            <p>Submit application form and required materials through online application system</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Entrance Exam</h3>
+                            <p>Eligible applicants will be invited to take an entrance exam</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Interview</h3>
+                            <p>Applicants who pass the entrance exam will be interviewed</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Admission Notice</h3>
+                            <p>Successful applicants will receive an admission notice within two weeks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系表单 -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-zh">聯繫我們</h2>
+                <h2 class="lang-en">Contact Us</h2>
+                <p class="lang-zh">如果您對我們的課程有任何疑問，請隨時與我們聯繫</p>
+                <p class="lang-en">If you have any questions about our program, please feel free to contact us</p>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name" class="lang-zh">姓名</label>
+                        <label for="name" class="lang-en">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="lang-zh">電子郵件</label>
+                        <label for="email" class="lang-en">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class="lang-zh">主題</label>
+                        <label for="subject" class="lang-en">Subject</label>
+                        <input type="text" id="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="lang-zh">訊息</label>
+                        <label for="message" class="lang-en">Message</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn lang-zh">提交</button>
+                    <button type="submit" class="submit-btn lang-en">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="lang-zh">香港珠海學院</h3>
+                    <h3 class="lang-en">Hong Kong Chu Hai College</h3>
+                    <p class="lang-zh">致力於提供優質的高等教育，培養未來領袖和創新者</p>
+                    <p class="lang-en">Committed to providing quality higher education and cultivating future leaders and innovators</p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="lang-zh">聯繫信息</h3>
+                    <h3 class="lang-en">Contact Information</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 香港新界青山公路青山灣段</p>
+                    <p><i class="fas fa-phone"></i> +852 1234 5678</p>
+                    <p><i class="fas fa-envelope"></i> ai@chuhai.edu.hk</p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="lang-zh">關注我們</h3>
+                    <h3 class="lang-en">Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 香港珠海學院. <span class="lang-zh">版權所有</span><span class="lang-en">All Rights Reserved</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 语言切换功能
+        document.getElementById('languageSwitcher').addEventListener('click', function() {
+            const html = document.documentElement;
+            if (html.lang === 'zh-Hant') {
+                html.lang = 'en';
+            } else {
+                html.lang = 'zh-Hant';
+            }
+        });
+        
+        // 表单提交功能
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert(document.documentElement.lang === 'zh-Hant' ? '感謝您的留言，我們會盡快回覆您！' : 'Thank you for your message. We will reply to you as soon as possible!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
